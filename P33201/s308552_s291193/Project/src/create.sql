@@ -1,7 +1,6 @@
-
-CREATE TYPE POS AS ENUM ('GK', 'CB', 'LB', 'RB', 'CDM', 'CAM', 'CM', 'CF',
-    'RF', 'LF', 'LM', 'RM');
-CREATE TYPE LEVEL AS ENUM ('CLUB', 'INTERNATIONAL');
+CREATE TYPE _POSITION  AS ENUM  ('GK', 'CB', 'LB', 'RB', 'CDM', 'CAM', 'CM', 'CF',
+    'RF', 'LF', 'LM', 'RM')  ;
+CREATE TYPE _LEVEL AS ENUM ('CLUB', 'INTERNATIONAL');
 CREATE TABLE IF NOT EXISTS attribute (
                                          id SERIAL PRIMARY KEY,
                                          attack INTEGER DEFAULT 50,
@@ -17,7 +16,7 @@ CREATE TABLE IF NOT EXISTS player (
                                       full_name VARCHAR(50) NOT NULL,
                                       height INTEGER NOT NULL,
                                       weight REAL NOT NULL,
-                                      position_ POS NOT NULL,
+                                      position _POSITION NOT NULL,
                                       nationality VARCHAR(50) NOT NULL,
                                       shirt_number INTEGER NOT NULL,
                                       birthday DATE NOT NULL,
@@ -41,7 +40,7 @@ CREATE TABLE IF NOT EXISTS league (
                                       id SERIAL PRIMARY KEY,
                                       name VARCHAR(50) NOT NULL,
                                       region VARCHAR(50) NOT NULL,
-                                      level LEVEL NOT NULL
+                                      level _level NOT NULL
 );
 CREATE TABLE IF NOT EXISTS stadium (
                                        id SERIAL PRIMARY KEY,
